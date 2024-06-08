@@ -1,0 +1,44 @@
+---
+interface Props {
+	name: string;
+	logo?: string;
+}
+
+const { name, logo } = Astro.props;
+---
+
+<div class="home-site-id">
+	{
+		logo ? (
+			<div class="home-site-logo">
+				<img src={logo} alt="" />
+			</div>
+		) : null
+	}
+	<h1>{name}</h1>
+</div>
+
+<style>
+	.home-site-id {
+		text-align: center;
+		font-weight: bold;
+		font-size: 3em;
+	}
+	.home-site-id > * {
+		margin: 0.5em 0em;
+	}
+	.home-site-id h1 {
+		font-size: 100%;
+	}
+	.home-site-logo {
+		height: 1.5em;
+	}
+	.home-site-logo img {
+		height: 100%;
+	}
+	@media (max-width: 40em) {
+		.home-site-id {
+			font-size: 1.5em;
+		}
+	}
+</style>

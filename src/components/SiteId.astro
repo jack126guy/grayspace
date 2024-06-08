@@ -1,0 +1,53 @@
+---
+interface Props {
+	name: string;
+	logo?: string;
+	homeLink: string;
+}
+
+const { name, logo, homeLink } = Astro.props;
+---
+
+<div class="site-id">
+	<a href={homeLink}>
+		{
+			logo ? (
+				<span class="site-logo">
+					<img src={logo} alt="" />
+				</span>
+			) : null
+		}
+		<span>{name}</span>
+	</a>
+</div>
+
+<style>
+	.site-id {
+		text-align: center;
+		font-size: 2.5em;
+		font-weight: bold;
+	}
+	.site-id a {
+		color: inherit;
+	}
+	.site-id a:hover,
+	.site-id a:focus {
+		text-decoration: none;
+	}
+	.site-id span {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0.3em 0.15em;
+	}
+	.site-logo {
+		height: 1.5em;
+	}
+	.site-logo img {
+		height: 100%;
+	}
+	@media (max-width: 40em) {
+		.site-id {
+			font-size: 1.25em;
+		}
+	}
+</style>

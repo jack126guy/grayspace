@@ -1,0 +1,26 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import HomeSiteId from './HomeSiteId.astro';
+
+interface Props {
+	lang: string;
+	siteName: string;
+	siteLogo?: string;
+}
+
+const { lang, siteName, siteLogo } = Astro.props;
+---
+
+<BaseLayout lang={lang} title={siteName}>
+	<Fragment slot="head">
+		<slot name="head" />
+	</Fragment>
+	<Fragment slot="header">
+		<HomeSiteId name={siteName} logo={siteLogo} />
+		<slot name="header" />
+	</Fragment>
+	<slot />
+	<Fragment slot="footer">
+		<slot name="footer" />
+	</Fragment>
+</BaseLayout>
