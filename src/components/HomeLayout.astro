@@ -6,12 +6,13 @@ interface Props {
 	lang: string;
 	siteName: string;
 	siteLogo?: string;
+	favicon?: string;
 }
 
-const { lang, siteName, siteLogo } = Astro.props;
+const { lang, siteName, siteLogo, favicon } = Astro.props;
 ---
 
-<BaseLayout lang={lang} title={siteName}>
+<BaseLayout lang={lang} favicon={favicon || siteLogo} title={siteName}>
 	<Fragment slot="head">
 		<slot name="head" />
 	</Fragment>

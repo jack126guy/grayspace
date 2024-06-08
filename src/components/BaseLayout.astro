@@ -3,10 +3,11 @@ import SkipToMain from './SkipToMain.astro';
 
 interface Props {
 	lang: string;
+	favicon?: string;
 	title: string;
 }
 
-const { lang, title } = Astro.props;
+const { lang, favicon, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,6 +15,7 @@ const { lang, title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{favicon ? <link rel="icon" href={favicon} /> : null}
 		<title>{title}</title>
 		<slot name="head" />
 	</head>
