@@ -1,0 +1,92 @@
+---
+import SkipToMain from './SkipToMain.astro';
+
+interface Props {
+	lang: string;
+	title: string;
+}
+
+const { lang, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<slot name="head" />
+	</head>
+	<body>
+		<header>
+			<SkipToMain />
+			<slot name="header" />
+		</header>
+		<main id="main">
+			<slot />
+		</main>
+		<footer>
+			<slot name="footer" />
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	body {
+		margin: 0.75em auto;
+		padding: 0em 0.75em;
+		max-width: 40em;
+		font-family: sans-serif;
+		line-height: 1.5;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 2em;
+		margin: 0.75em 0em 0.375em;
+	}
+	h2 {
+		font-size: 1.5em;
+		margin: 1em 0em 0.5em;
+	}
+	h3 {
+		font-size: 1.25em;
+		margin: 1.2em 0em 0.6em;
+	}
+	h4 {
+		font-size: 1em;
+		margin: 1.5em 0em 0.75em;
+	}
+	h5 {
+		font-size: 0.75em;
+		margin: 2em 0em 1em;
+	}
+	h6 {
+		font-size: 0.625em;
+		margin: 2.4em 0em 1.2em;
+	}
+	p,
+	ul,
+	ol {
+		margin: 0.75em 0em;
+	}
+	a {
+		text-decoration: none;
+	}
+	a:hover,
+	a:focus {
+		text-decoration: underline;
+	}
+	@media print {
+		body {
+			margin: 0em;
+			padding: 0em;
+		}
+	}
+</style>
