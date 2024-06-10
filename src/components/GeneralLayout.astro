@@ -31,3 +31,9 @@ const { lang, title, siteName, siteLogo, favicon, homeLink } = Astro.props;
 		<slot name="footer" />
 	</Fragment>
 </BaseLayout>
+
+<style is:global>
+	header {
+		border-bottom: thin solid;
+	}
+</style>
