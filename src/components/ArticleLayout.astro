@@ -1,0 +1,37 @@
+---
+import GeneralLayout from './GeneralLayout.astro';
+
+interface Props {
+	lang: string;
+	title: string;
+	siteName: string;
+	siteLogo?: string;
+	favicon?: string;
+	homeLink: string;
+}
+
+const { lang, title, siteName, siteLogo, favicon, homeLink } = Astro.props;
+---
+
+<GeneralLayout
+	lang={lang}
+	title={title}
+	siteName={siteName}
+	siteLogo={siteLogo}
+	favicon={favicon}
+	homeLink={homeLink}
+>
+	<Fragment slot="head">
+		<slot name="head" />
+	</Fragment>
+	<Fragment slot="header">
+		<slot name="header" />
+	</Fragment>
+	<article>
+		<h1>{title}</h1>
+		<slot />
+	</article>
+	<Fragment slot="footer">
+		<slot name="footer" />
+	</Fragment>
+</GeneralLayout>
