@@ -1,7 +1,10 @@
 {
 	"name": "@halfgray/grayspace",
 	"version": "0.1.1",
+	"description": "Minimal theme components for Astro",
 	"type": "module",
+	"author": "Half-Gray <halfgray7e@gmail.com>",
+	"license": "MIT",
 	"exports": {
 		".": "./index.ts"
 	},
