@@ -1,6 +1,6 @@
 {
 	"name": "@halfgray/grayspace",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "Minimal theme components for Astro",
 	"type": "module",
 	"author": "Half-Gray <halfgray7e@gmail.com>",
