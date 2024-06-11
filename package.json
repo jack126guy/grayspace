@@ -12,7 +12,8 @@
 	"keywords": ["astro-component"],
 	"scripts": {
 		"check": "astro check",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"dev": "astro dev"
 	},
 	"devDependencies": {
 		"astro": "^4.6.3",
