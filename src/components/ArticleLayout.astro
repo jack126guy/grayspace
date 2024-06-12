@@ -1,26 +1,16 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
+import { type SiteInfo } from '../site-info';
 
 interface Props {
-	lang: string;
 	title: string;
-	siteName: string;
-	siteLogo?: string;
-	favicon?: string;
-	homeLink: string;
+	siteInfo: SiteInfo;
 }
 
-const { lang, title, siteName, siteLogo, favicon, homeLink } = Astro.props;
+const { title, siteInfo } = Astro.props;
 ---
 
-<GeneralLayout
-	lang={lang}
-	title={title}
-	siteName={siteName}
-	siteLogo={siteLogo}
-	favicon={favicon}
-	homeLink={homeLink}
->
+<GeneralLayout title={title} siteInfo={siteInfo}>
 	<Fragment slot="head">
 		<slot name="head" />
 	</Fragment>

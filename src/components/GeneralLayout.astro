@@ -1,17 +1,18 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import SiteId from './SiteId.astro';
+import { type SiteInfo } from '../site-info';
 
 interface Props {
-	lang: string;
 	title: string;
-	siteName: string;
-	siteLogo?: string;
-	favicon?: string;
-	homeLink: string;
+	siteInfo: SiteInfo;
 }
 
-const { lang, title, siteName, siteLogo, favicon, homeLink } = Astro.props;
+const {
+	title,
+	siteInfo: { lang, siteName, siteLogo, favicon, homeLink },
+} = Astro.props;
+const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -24,7 +25,7 @@ const { lang, title, siteName, siteLogo, favicon, homeLink } = Astro.props;
 	</Fragment>
 	<Fragment slot="header">
 		<div class="general-header">
-			<SiteId name={siteName} logo={siteLogo} homeLink={homeLink} />
+			<SiteId name={siteName} logo={siteLogo} homeLink={autoHomeLink} />
 			<slot name="header" />
 		</div>
 	</Fragment>

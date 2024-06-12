@@ -1,15 +1,15 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import HomeSiteId from './HomeSiteId.astro';
+import { type SiteInfo } from '../site-info';
 
 interface Props {
-	lang: string;
-	siteName: string;
-	siteLogo?: string;
-	favicon?: string;
+	siteInfo: SiteInfo;
 }
 
-const { lang, siteName, siteLogo, favicon } = Astro.props;
+const {
+	siteInfo: { lang, siteName, siteLogo, favicon },
+} = Astro.props;
 ---
 
 <BaseLayout lang={lang} favicon={favicon || siteLogo} title={siteName}>

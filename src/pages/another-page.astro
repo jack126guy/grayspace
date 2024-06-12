@@ -1,13 +1,10 @@
 ---
 import ArticleLayout from '../components/ArticleLayout.astro';
+
+const siteInfo = { lang: 'en', siteName: 'Grayspace Demo' };
 ---
 
-<ArticleLayout
-	lang="en"
-	title="Another Page"
-	siteName="Grayspace Demo"
-	homeLink="/"
->
+<ArticleLayout title="Another Page" siteInfo={siteInfo}>
 	<p>
 		This is a different page, used to demonstrate the general (non-home)
 		layout.
