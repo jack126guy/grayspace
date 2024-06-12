@@ -8,7 +8,7 @@
 	"exports": {
 		".": "./index.ts"
 	},
-	"files": ["src/env.d.ts", "src/components", "index.ts"],
+	"files": ["src", "!src/pages", "index.ts"],
 	"keywords": ["astro-component"],
 	"scripts": {
 		"check": "astro check",
