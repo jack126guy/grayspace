@@ -5,9 +5,10 @@ interface Props {
 	lang: string;
 	favicon?: string;
 	title: string;
+	skipToMainText?: string;
 }
 
-const { lang, favicon, title } = Astro.props;
+const { lang, favicon, title, skipToMainText } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +22,7 @@ const { lang, favicon, title } = Astro.props;
 	</head>
 	<body>
 		<header>
-			<SkipToMain />
+			<SkipToMain text={skipToMainText} />
 			<slot name="header" />
 		</header>
 		<main id="main">
