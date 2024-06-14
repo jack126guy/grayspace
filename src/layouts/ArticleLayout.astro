@@ -6,10 +6,10 @@ interface Props {
 	frontmatter?: Record<string, string>;
 }
 
-const { title, frontmatter } = Astro.props;
+const title = Astro.props.frontmatter?.title || Astro.props.title || '';
 ---
 
-<GeneralLayout title={title} frontmatter={frontmatter}>
+<GeneralLayout title={title}>
 	<slot slot="head" name="head" />
 	<slot slot="header" name="header" />
 	<article>
