@@ -1,15 +1,9 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import HomeSiteId from './HomeSiteId.astro';
-import { type SiteInfo } from '../site-info';
+import siteInfo from 'virtual:grayspace/site-info';
 
-interface Props {
-	siteInfo: SiteInfo;
-}
-
-const {
-	siteInfo: { lang, siteName, siteLogo, favicon, skipToMainText },
-} = Astro.props;
+const { lang, siteName, siteLogo, favicon, skipToMainText } = siteInfo;
 ---
 
 <BaseLayout

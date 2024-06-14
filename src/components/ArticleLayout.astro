@@ -1,16 +1,14 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
-import { type SiteInfo } from '../site-info';
 
 interface Props {
 	title: string;
-	siteInfo: SiteInfo;
 }
 
-const { title, siteInfo } = Astro.props;
+const { title } = Astro.props;
 ---
 
-<GeneralLayout title={title} siteInfo={siteInfo}>
+<GeneralLayout title={title}>
 	<slot slot="head" name="head" />
 	<slot slot="header" name="header" />
 	<article>

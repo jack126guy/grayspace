@@ -6,7 +6,8 @@
 	"author": "Half-Gray <halfgray7e@gmail.com>",
 	"license": "MIT",
 	"exports": {
-		".": "./index.ts"
+		".": "./index.ts",
+		"./components": "./components.ts"
 	},
 	"files": ["src", "!src/pages", "index.ts"],
 	"keywords": ["astro-component"],
