@@ -10,7 +10,7 @@ interface Props {
 
 const {
 	title,
-	siteInfo: { lang, siteName, siteLogo, favicon, homeLink },
+	siteInfo: { lang, siteName, siteLogo, favicon, homeLink, skipToMainText },
 } = Astro.props;
 const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 ---
@@ -19,6 +19,7 @@ const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 	lang={lang}
 	favicon={favicon || siteLogo}
 	title={`${title} | ${siteName}`}
+	skipToMainText={skipToMainText}
 >
 	<slot slot="head" name="head" />
 	<Fragment slot="header">

@@ -8,11 +8,16 @@ interface Props {
 }
 
 const {
-	siteInfo: { lang, siteName, siteLogo, favicon },
+	siteInfo: { lang, siteName, siteLogo, favicon, skipToMainText },
 } = Astro.props;
 ---
 
-<BaseLayout lang={lang} favicon={favicon || siteLogo} title={siteName}>
+<BaseLayout
+	lang={lang}
+	favicon={favicon || siteLogo}
+	title={siteName}
+	skipToMainText={skipToMainText}
+>
 	<slot slot="head" name="head" />
 	<Fragment slot="header">
 		<HomeSiteId name={siteName} logo={siteLogo} />
