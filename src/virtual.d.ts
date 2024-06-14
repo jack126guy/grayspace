@@ -3,3 +3,4 @@ declare module 'virtual:grayspace/site-info' {
 	const siteInfo: SiteInfo;
 	export default siteInfo;
 }
+declare module 'virtual:grayspace/site-styles' {}
