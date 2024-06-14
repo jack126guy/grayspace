@@ -11,17 +11,11 @@ const { title, siteInfo } = Astro.props;
 ---
 
 <GeneralLayout title={title} siteInfo={siteInfo}>
-	<Fragment slot="head">
-		<slot name="head" />
-	</Fragment>
-	<Fragment slot="header">
-		<slot name="header" />
-	</Fragment>
+	<slot slot="head" name="head" />
+	<slot slot="header" name="header" />
 	<article>
 		<h1>{title}</h1>
 		<slot />
 	</article>
-	<Fragment slot="footer">
-		<slot name="footer" />
-	</Fragment>
+	<slot slot="footer" name="footer" />
 </GeneralLayout>

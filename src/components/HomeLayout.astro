@@ -13,15 +13,11 @@ const {
 ---
 
 <BaseLayout lang={lang} favicon={favicon || siteLogo} title={siteName}>
-	<Fragment slot="head">
-		<slot name="head" />
-	</Fragment>
+	<slot slot="head" name="head" />
 	<Fragment slot="header">
 		<HomeSiteId name={siteName} logo={siteLogo} />
 		<slot name="header" />
 	</Fragment>
 	<slot />
-	<Fragment slot="footer">
-		<slot name="footer" />
-	</Fragment>
+	<slot slot="footer" name="footer" />
 </BaseLayout>
