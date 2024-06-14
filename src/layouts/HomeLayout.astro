@@ -1,5 +1,5 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BasePage from '../components/BasePage.astro';
 import HomeSiteId from '../components/HomeSiteId.astro';
 import siteInfo from 'virtual:grayspace/site-info';
 import 'virtual:grayspace/site-styles';
@@ -7,7 +7,7 @@ import 'virtual:grayspace/site-styles';
 const { lang, siteName, siteLogo, favicon, skipToMainText } = siteInfo;
 ---
 
-<BaseLayout
+<BasePage
 	lang={lang}
 	favicon={favicon || siteLogo}
 	title={siteName}
@@ -20,4 +20,4 @@ const { lang, siteName, siteLogo, favicon, skipToMainText } = siteInfo;
 	</Fragment>
 	<slot />
 	<slot slot="footer" name="footer" />
-</BaseLayout>
+</BasePage>

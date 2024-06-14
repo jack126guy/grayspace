@@ -1,5 +1,5 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BasePage from '../components/BasePage.astro';
 import SiteId from '../components/SiteId.astro';
 import siteInfo from 'virtual:grayspace/site-info';
 import 'virtual:grayspace/site-styles';
@@ -17,7 +17,7 @@ const { lang, siteName, siteLogo, favicon, homeLink, skipToMainText } =
 const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 ---
 
-<BaseLayout
+<BasePage
 	lang={lang}
 	favicon={favicon || siteLogo}
 	title={`${title} | ${siteName}`}
@@ -32,7 +32,7 @@ const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 	</Fragment>
 	<slot />
 	<slot slot="footer" name="footer" />
-</BaseLayout>
+</BasePage>
 
 <style>
 	.general-header {
