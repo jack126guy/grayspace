@@ -1,7 +1,7 @@
 {
 	"name": "@halfgray/grayspace",
 	"version": "0.4.0",
-	"description": "Minimal theme components for Astro",
+	"description": "Minimal theme integration for Astro",
 	"type": "module",
 	"author": "Half-Gray <halfgray7e@gmail.com>",
 	"license": "MIT",
@@ -11,7 +11,7 @@
 		"./layouts/*": "./src/layouts/*.astro"
 	},
 	"files": ["src", "!src/pages", "index.ts"],
-	"keywords": ["astro-component"],
+	"keywords": ["astro-integration", "withastro"],
 	"scripts": {
 		"check": "astro check",
 		"format": "prettier --write .",
@@ -29,5 +29,13 @@
 	"dependencies": {
 		"@astrojs/check": "^0.5.10",
 		"typescript": "^5.4.5"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jack126guy/grayspace.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jack126guy/grayspace/issues"
+	},
+	"homepage": "https://github.com/jack126guy/grayspace#readme"
 }
