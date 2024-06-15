@@ -38,8 +38,10 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 
 function buildSiteInfo(options: GrayspaceOptions): SiteInfo {
 	return {
-		homeLink: import.meta.env.BASE_URL,
-		...options,
+		siteName: options.siteName,
+		siteLogo: options.siteLogo,
+		favicon: options.favicon || options.siteLogo,
+		homeLink: options.homeLink || import.meta.env.BASE_URL,
 	};
 }
 
