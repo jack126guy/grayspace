@@ -43,6 +43,8 @@ function buildSiteInfo(
 ): SiteInfo {
 	return {
 		lang: astroConfig.i18n?.defaultLocale || '',
+		homeLink: import.meta.env.BASE_URL,
+		skipToMainText: 'Skip to main content',
 		...options,
 	};
 }

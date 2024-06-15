@@ -10,7 +10,6 @@ interface Props extends GeneralLayoutProps {}
 const title = getTitle(Astro.props);
 const { lang, siteName, siteLogo, favicon, homeLink, skipToMainText } =
 	siteInfo;
-const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 ---
 
 <BasePage
@@ -22,7 +21,7 @@ const autoHomeLink = homeLink || import.meta.env.BASE_URL;
 	<slot slot="head" name="head" />
 	<Fragment slot="header">
 		<div class="general-header">
-			<SiteId name={siteName} logo={siteLogo} homeLink={autoHomeLink} />
+			<SiteId name={siteName} logo={siteLogo} homeLink={homeLink} />
 			<slot name="header" />
 		</div>
 	</Fragment>

@@ -1,12 +1,12 @@
 ---
 interface Props {
-	text?: string;
+	text: string;
 }
 
 const { text } = Astro.props;
 ---
 
-<a href="#main" class="skip-to-main">{text || 'Skip to main content'}</a>
+<a href="#main" class="skip-to-main">{text}</a>
 
 <style>
 	.skip-to-main {
