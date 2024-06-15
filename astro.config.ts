@@ -9,6 +9,7 @@ export default defineConfig({
 	integrations: [
 		grayspace({
 			siteName: 'Grayspace Demo',
+			siteLogo: '/logo.png',
 		}),
 	],
 });
