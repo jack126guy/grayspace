@@ -4,11 +4,11 @@ import HomeSiteId from '../components/HomeSiteId.astro';
 import siteInfo from 'virtual:grayspace/site-info';
 import 'virtual:grayspace/site-styles';
 
-const { lang, siteName, siteLogo, favicon, skipToMainText } = siteInfo;
+const { siteName, siteLogo, favicon, skipToMainText } = siteInfo;
 ---
 
 <BasePage
-	lang={lang}
+	lang={Astro.currentLocale}
 	favicon={favicon || siteLogo}
 	title={siteName}
 	skipToMainText={skipToMainText}

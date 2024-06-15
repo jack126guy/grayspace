@@ -8,12 +8,11 @@ import 'virtual:grayspace/site-styles';
 interface Props extends GeneralLayoutProps {}
 
 const title = getTitle(Astro.props);
-const { lang, siteName, siteLogo, favicon, homeLink, skipToMainText } =
-	siteInfo;
+const { siteName, siteLogo, favicon, homeLink, skipToMainText } = siteInfo;
 ---
 
 <BasePage
-	lang={lang}
+	lang={Astro.currentLocale}
 	favicon={favicon || siteLogo}
 	title={`${title} | ${siteName}`}
 	skipToMainText={skipToMainText}

@@ -1,5 +1,5 @@
 import { type SiteInfo } from './site-info';
-import type { AstroConfig, AstroIntegration } from 'astro';
+import { type AstroIntegration } from 'astro';
 import { type Plugin } from 'vite';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,7 +18,7 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 		name: '@halfgray/grayspace',
 		hooks: {
 			'astro:config:setup': ({ config, updateConfig }) => {
-				const siteInfo = buildSiteInfo(options, config);
+				const siteInfo = buildSiteInfo(options);
 				const siteStyleImports = (options.siteStyles || []).map((s) =>
 					convertImport(s, config.root)
 				);
@@ -37,12 +37,8 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 	};
 }
 
-function buildSiteInfo(
-	options: GrayspaceOptions,
-	astroConfig: AstroConfig
-): SiteInfo {
+function buildSiteInfo(options: GrayspaceOptions): SiteInfo {
 	return {
-		lang: astroConfig.i18n?.defaultLocale || '',
 		homeLink: import.meta.env.BASE_URL,
 		skipToMainText: 'Skip to main content',
 		...options,
