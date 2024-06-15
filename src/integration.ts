@@ -10,7 +10,6 @@ export interface GrayspaceOptions {
 	favicon?: string;
 	siteStyles?: string[];
 	homeLink?: string;
-	skipToMainText?: string;
 }
 
 export function integration(options: GrayspaceOptions): AstroIntegration {
@@ -40,7 +39,6 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 function buildSiteInfo(options: GrayspaceOptions): SiteInfo {
 	return {
 		homeLink: import.meta.env.BASE_URL,
-		skipToMainText: 'Skip to main content',
 		...options,
 	};
 }

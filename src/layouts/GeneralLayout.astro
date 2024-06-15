@@ -3,16 +3,19 @@ import BasePage from '../components/BasePage.astro';
 import SiteId from '../components/SiteId.astro';
 import { type GeneralLayoutProps, getTitle } from '../layout-props';
 import siteInfo from 'virtual:grayspace/site-info';
+import { i18n } from '../i18n';
 import 'virtual:grayspace/site-styles';
 
 interface Props extends GeneralLayoutProps {}
 
+const currentLocale = Astro.currentLocale;
 const title = getTitle(Astro.props);
-const { siteName, siteLogo, favicon, homeLink, skipToMainText } = siteInfo;
+const { siteName, siteLogo, favicon, homeLink } = siteInfo;
+const skipToMainText = i18n(currentLocale).__('Skip to main content');
 ---
 
 <BasePage
-	lang={Astro.currentLocale}
+	lang={currentLocale}
 	favicon={favicon || siteLogo}
 	title={`${title} | ${siteName}`}
 	skipToMainText={skipToMainText}

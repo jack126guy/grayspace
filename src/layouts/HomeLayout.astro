@@ -2,13 +2,16 @@
 import BasePage from '../components/BasePage.astro';
 import HomeSiteId from '../components/HomeSiteId.astro';
 import siteInfo from 'virtual:grayspace/site-info';
+import { i18n } from '../i18n';
 import 'virtual:grayspace/site-styles';
 
-const { siteName, siteLogo, favicon, skipToMainText } = siteInfo;
+const currentLocale = Astro.currentLocale;
+const { siteName, siteLogo, favicon } = siteInfo;
+const skipToMainText = i18n(currentLocale).__('Skip to main content');
 ---
 
 <BasePage
-	lang={Astro.currentLocale}
+	lang={currentLocale}
 	favicon={favicon || siteLogo}
 	title={siteName}
 	skipToMainText={skipToMainText}
