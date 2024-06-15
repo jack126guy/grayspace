@@ -1,6 +1,6 @@
 ---
 import BasePage from '../components/BasePage.astro';
-import SiteId from '../components/SiteId.astro';
+import GeneralHeader from '../components/GeneralHeader.astro';
 import { type GeneralLayoutProps, getTitle } from '../layout-props';
 import siteInfo from 'virtual:grayspace/site-info';
 import { i18n } from '../i18n';
@@ -21,18 +21,14 @@ const skipToMainText = i18n(currentLocale).__('Skip to main content');
 	skipToMainText={skipToMainText}
 >
 	<slot slot="head" name="head" />
-	<Fragment slot="header">
-		<div class="general-header">
-			<SiteId name={siteName} logo={siteLogo} link={homeLink} />
-			<slot name="header" />
-		</div>
-	</Fragment>
+	<GeneralHeader
+		slot="header"
+		siteName={siteName}
+		siteLogo={siteLogo}
+		homeLink={homeLink}
+	>
+		<slot name="header" />
+	</GeneralHeader>
 	<slot />
 	<slot slot="footer" name="footer" />
 </BasePage>
-
-<style>
-	.general-header {
-		border-bottom: thin solid;
-	}
-</style>

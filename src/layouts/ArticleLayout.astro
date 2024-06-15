@@ -1,5 +1,6 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
+import Article from '../components/Article.astro';
 import { type GeneralLayoutProps, getTitle } from '../layout-props';
 
 interface Props extends GeneralLayoutProps {}
@@ -10,9 +11,8 @@ const title = getTitle(Astro.props);
 <GeneralLayout {...Astro.props}>
 	<slot slot="head" name="head" />
 	<slot slot="header" name="header" />
-	<article>
-		<h1>{title}</h1>
+	<Article title={title}>
 		<slot />
-	</article>
+	</Article>
 	<slot slot="footer" name="footer" />
 </GeneralLayout>
