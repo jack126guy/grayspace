@@ -1,15 +1,13 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
+import { type GeneralLayoutProps, getTitle } from '../layout-props';
 
-interface Props {
-	title?: string;
-	frontmatter?: Record<string, string>;
-}
+interface Props extends GeneralLayoutProps {}
 
-const title = Astro.props.frontmatter?.title || Astro.props.title || '';
+const title = getTitle(Astro.props);
 ---
 
-<GeneralLayout title={title}>
+<GeneralLayout {...Astro.props}>
 	<slot slot="head" name="head" />
 	<slot slot="header" name="header" />
 	<article>
