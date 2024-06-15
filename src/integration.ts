@@ -53,7 +53,7 @@ function siteConfigVirtualModulePlugin(
 	siteInfo: SiteInfo,
 	siteStyleImports: string[]
 ): Plugin {
-	const virtualModules: Record<string, string> = {
+	const virtualModules = {
 		'virtual:grayspace/site-info': `export default ${JSON.stringify(siteInfo)}`,
 		'virtual:grayspace/site-styles': siteStyleImports
 			.map((c) => `import ${JSON.stringify(c)};`)
@@ -71,7 +71,9 @@ function siteConfigVirtualModulePlugin(
 			if (id.startsWith('\0')) {
 				const moduleId = id.substring(1);
 				if (moduleId in virtualModules) {
-					return virtualModules[moduleId];
+					return virtualModules[
+						moduleId as keyof typeof virtualModules
+					];
 				}
 			}
 			return null;
