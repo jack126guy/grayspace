@@ -2,14 +2,14 @@
 interface Props {
 	name: string;
 	logo?: string;
-	homeLink: string;
+	link: string;
 }
 
-const { name, logo, homeLink } = Astro.props;
+const { name, logo, link } = Astro.props;
 ---
 
 <div class="site-id">
-	<a href={homeLink}>
+	<a href={link}>
 		{
 			logo ? (
 				<span class="site-logo">
