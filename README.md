@@ -120,3 +120,7 @@ import CustomComponent from '../components/CustomComponent.astro';
 	<CustomComponent />
 </BasePage>
 ```
+
+## License
+
+Grayspace is available under the MIT License. Refer to `LICENSE.txt` for details.

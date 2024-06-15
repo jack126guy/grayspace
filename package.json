@@ -10,7 +10,7 @@
 		"./components": "./components.ts",
 		"./layouts/*": "./src/layouts/*.astro"
 	},
-	"files": ["src", "!src/pages", "!src/*.d.ts", "index.ts"],
+	"files": ["src", "!src/pages", "!src/*.d.ts", "index.ts", "README.md"],
 	"keywords": ["astro-integration", "withastro"],
 	"scripts": {
 		"check": "astro check",
