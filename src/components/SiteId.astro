@@ -24,7 +24,7 @@ const { name, logo, link } = Astro.props;
 <style>
 	.site-id {
 		text-align: center;
-		font-size: 2.5em;
+		font-size: 2em;
 		font-weight: bold;
 	}
 	.site-id a {
@@ -37,7 +37,7 @@ const { name, logo, link } = Astro.props;
 	.site-id span {
 		display: inline-block;
 		vertical-align: middle;
-		margin: 0.3em 0.15em;
+		margin: 0.375em;
 	}
 	.site-logo {
 		height: 1.5em;
@@ -45,9 +45,12 @@ const { name, logo, link } = Astro.props;
 	.site-logo img {
 		height: 100%;
 	}
-	@media (max-width: 40em) {
+	@media (max-width: 40em), print {
 		.site-id {
-			font-size: 1.25em;
+			font-size: 1.5em;
+		}
+		.site-id span {
+			margin: 0.25em;
 		}
 	}
 </style>
