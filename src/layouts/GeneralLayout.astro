@@ -1,25 +1,16 @@
 ---
-import BasePage from '../components/BasePage.astro';
+import LayoutBase from './LayoutBase.astro';
 import GeneralHeader from '../components/GeneralHeader.astro';
 import { type GeneralLayoutProps, getTitle } from '../layout-props';
 import siteInfo from 'virtual:grayspace/site-info';
-import { i18n } from '../i18n';
-import 'virtual:grayspace/site-styles';
 
 interface Props extends GeneralLayoutProps {}
 
-const currentLocale = Astro.currentLocale;
 const title = getTitle(Astro.props);
-const { siteName, siteLogo, favicon, homeLink } = siteInfo;
-const skipToMainText = i18n(currentLocale).__('Skip to main content');
+const { siteName, siteLogo, homeLink } = siteInfo;
 ---
 
-<BasePage
-	lang={currentLocale}
-	favicon={favicon}
-	title={`${title} | ${siteName}`}
-	skipToMainText={skipToMainText}
->
+<LayoutBase title={`${title} | ${siteName}`}>
 	<slot slot="head" name="head" />
 	<GeneralHeader
 		slot="header"
@@ -31,4 +22,4 @@ const skipToMainText = i18n(currentLocale).__('Skip to main content');
 	</GeneralHeader>
 	<slot />
 	<slot slot="footer" name="footer" />
-</BasePage>
+</LayoutBase>

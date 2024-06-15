@@ -1,21 +1,12 @@
 ---
-import BasePage from '../components/BasePage.astro';
+import LayoutBase from './LayoutBase.astro';
 import HomeSiteId from '../components/HomeSiteId.astro';
 import siteInfo from 'virtual:grayspace/site-info';
-import { i18n } from '../i18n';
-import 'virtual:grayspace/site-styles';
 
-const currentLocale = Astro.currentLocale;
-const { siteName, siteLogo, favicon } = siteInfo;
-const skipToMainText = i18n(currentLocale).__('Skip to main content');
+const { siteName, siteLogo } = siteInfo;
 ---
 
-<BasePage
-	lang={currentLocale}
-	favicon={favicon}
-	title={siteName}
-	skipToMainText={skipToMainText}
->
+<LayoutBase title={siteName}>
 	<slot slot="head" name="head" />
 	<Fragment slot="header">
 		<HomeSiteId name={siteName} logo={siteLogo} />
@@ -23,4 +14,4 @@ const skipToMainText = i18n(currentLocale).__('Skip to main content');
 	</Fragment>
 	<slot />
 	<slot slot="footer" name="footer" />
-</BasePage>
+</LayoutBase>

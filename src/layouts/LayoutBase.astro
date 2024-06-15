@@ -1,0 +1,27 @@
+---
+import BasePage from '../components/BasePage.astro';
+import siteInfo from 'virtual:grayspace/site-info';
+import { i18n } from '../i18n';
+import 'virtual:grayspace/site-styles';
+
+interface Props {
+	title: string;
+}
+
+const currentLocale = Astro.currentLocale;
+const { title } = Astro.props;
+const { favicon } = siteInfo;
+const skipToMainText = i18n(currentLocale).__('Skip to main content');
+---
+
+<BasePage
+	lang={currentLocale}
+	favicon={favicon}
+	title={title}
+	skipToMainText={skipToMainText}
+>
+	<slot slot="head" name="head" />
+	<slot slot="header" name="header" />
+	<slot />
+	<slot slot="footer" name="footer" />
+</BasePage>
