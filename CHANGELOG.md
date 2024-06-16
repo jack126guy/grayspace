@@ -17,10 +17,10 @@
 * **Breaking**: Use built-in locale files instead of integration option for "skip to main" text
 * **Breaking**: Make "skip to main" text required in BasePage and SkipToMain components
 * **Breaking**: Rename "homeLink" prop to "link" in SiteId component
-* Support multiple locales
 
 ### Added
 
+* Support multiple locales
 * Add some components (Article, GeneralHeader) split out from layouts
 * Add LayoutBase layout for custom pages
 * Add README and license
