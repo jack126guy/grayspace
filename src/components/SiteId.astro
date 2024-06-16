@@ -16,8 +16,8 @@ const { name, logo, link } = Astro.props;
 					<img src={logo} alt="" />
 				</span>
 			) : null
-		}
-		<span>{name}</span>
+			/* Wrap name element to prevent whitespace between elements */
+		}{(<span>{name}</span>)}
 	</a>
 </div>
 
