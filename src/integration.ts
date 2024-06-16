@@ -1,8 +1,7 @@
 import { type SiteInfo } from './site-info';
+import { resolveRelativePath } from './fs';
 import { type AstroIntegration } from 'astro';
 import { type Plugin } from 'vite';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 export interface GrayspaceOptions {
 	siteName: string;
@@ -46,7 +45,7 @@ function buildSiteInfo(options: GrayspaceOptions): SiteInfo {
 }
 
 function convertImport(id: string, projectRoot: URL): string {
-	return id.startsWith('.') ? resolve(fileURLToPath(projectRoot), id) : id;
+	return id.startsWith('.') ? resolveRelativePath(id, projectRoot) : id;
 }
 
 function siteConfigVirtualModulePlugin(
