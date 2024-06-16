@@ -21,6 +21,7 @@
 	],
 	"keywords": ["astro-integration", "withastro"],
 	"scripts": {
+		"prepare": "astro check && prettier --write .",
 		"check": "astro check",
 		"format": "prettier --write .",
 		"dev": "astro dev"
