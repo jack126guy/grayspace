@@ -1,18 +1,20 @@
 ---
 import SkipToMain from '../components/SkipToMain.astro';
+import { type TextDirection } from '../i18n';
 
 interface Props {
 	lang?: string;
+	dir?: TextDirection;
 	favicon?: string;
 	title: string;
 	skipToMainText: string;
 }
 
-const { lang, favicon, title, skipToMainText } = Astro.props;
+const { lang, dir, favicon, title, skipToMainText } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} dir={dir}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
