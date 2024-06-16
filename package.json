@@ -16,6 +16,7 @@
 		"!src/*.d.ts",
 		"index.ts",
 		"README.md",
+		"CHANGELOG.md",
 		"LICENSE.txt"
 	],
 	"keywords": ["astro-integration", "withastro"],
