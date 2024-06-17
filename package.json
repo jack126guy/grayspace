@@ -27,17 +27,17 @@
 		"dev": "astro dev"
 	},
 	"devDependencies": {
+		"@astrojs/check": "^0.7.0",
 		"@types/node": "^20.14.2",
 		"astro": "^4.6.3",
 		"prettier": "^3.3.1",
-		"prettier-plugin-astro": "^0.14.0"
+		"prettier-plugin-astro": "^0.14.0",
+		"typescript": "^5.4.5"
 	},
 	"peerDependencies": {
 		"astro": "^4.0.0"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.10",
-		"typescript": "^5.4.5",
 		"y18n": "^5.0.8"
 	},
 	"repository": {
