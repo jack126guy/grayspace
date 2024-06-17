@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.2 - 2024-06-17
+
+### Added
+
+* Support different text directions (LTR and RTL) based on locale
+
+### Fixed
+
+* Remove whitespace between elements in header (SiteId and HomeSiteId components)
+
 ## 0.5.1 - 2024-06-16
 
 ### Changed
