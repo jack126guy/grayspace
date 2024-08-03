@@ -25,8 +25,8 @@
 		"check": "astro check",
 		"format": "prettier --write .",
 		"dev": "astro dev",
-		"test:ui": "cypress open --e2e --browser electron",
-		"test": "cypress run --e2e --browser electron"
+		"test": "cypress run --e2e --browser electron",
+		"test:ui": "cypress open --e2e --browser electron"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.7.0",
