@@ -1,12 +1,15 @@
 ---
 import LayoutBase from './LayoutBase.astro';
 import GeneralHeader from '../components/GeneralHeader.astro';
-import { type GeneralLayoutProps, getTitle } from '../layout-props';
+import {
+	type GeneralLayoutProps,
+	resolveGeneralLayoutOptions,
+} from '../layout-props';
 import siteInfo from 'virtual:grayspace/site-info';
 
 interface Props extends GeneralLayoutProps {}
 
-const title = getTitle(Astro.props);
+const { title } = resolveGeneralLayoutOptions(Astro.props);
 const { siteName, siteLogo, homeLink } = siteInfo;
 ---
 

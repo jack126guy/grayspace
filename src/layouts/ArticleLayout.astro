@@ -1,11 +1,14 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
 import Article from '../components/Article.astro';
-import { type GeneralLayoutProps, getTitle } from '../layout-props';
+import {
+	type GeneralLayoutProps,
+	resolveGeneralLayoutOptions,
+} from '../layout-props';
 
 interface Props extends GeneralLayoutProps {}
 
-const title = getTitle(Astro.props);
+const { title } = resolveGeneralLayoutOptions(Astro.props);
 ---
 
 <GeneralLayout {...Astro.props}>

@@ -1,10 +1,25 @@
-export interface GeneralLayoutProps {
+export interface GeneralLayoutProps extends GeneralLayoutOptions {
 	title?: string;
-	frontmatter?: {
-		title?: string;
-	};
+	frontmatter?: GeneralLayoutOptions;
 }
 
-export function getTitle(props: GeneralLayoutProps): string {
-	return props.frontmatter?.title || props.title || '';
+export interface GeneralLayoutOptions {
+	title?: string;
+}
+
+type KeysEnum<T> = { [K in keyof Required<T>]: true };
+
+const generalLayoutOptionsKeys: KeysEnum<GeneralLayoutOptions> = {
+	title: true,
+};
+
+export function resolveGeneralLayoutOptions(
+	props: GeneralLayoutProps
+): GeneralLayoutOptions {
+	const resolved: GeneralLayoutOptions = {};
+	Object.keys(generalLayoutOptionsKeys).forEach((k) => {
+		const option = k as keyof GeneralLayoutOptions;
+		resolved[option] = props.frontmatter?.[option] || props[option];
+	});
+	return resolved;
 }
