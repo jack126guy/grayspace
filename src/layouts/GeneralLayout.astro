@@ -11,9 +11,10 @@ interface Props extends GeneralLayoutProps {}
 
 const { title } = resolveGeneralLayoutOptions(Astro.props);
 const { siteName, siteLogo, homeLink } = siteInfo;
+const pageTitle = title ? `${title} | ${siteName}` : siteName;
 ---
 
-<LayoutBase title={`${title} | ${siteName}`}>
+<LayoutBase title={pageTitle}>
 	<slot slot="head" name="head" />
 	<GeneralHeader
 		slot="header"
