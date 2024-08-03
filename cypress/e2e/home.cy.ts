@@ -3,6 +3,10 @@ describe('home page', () => {
 		cy.visit('/');
 	});
 	it('has contents', () => {
+		cy.get('html')
+			.should('have.length', 1)
+			.and('have.attr', 'lang', 'en');
+
 		cy.get('header .skip-to-main')
 			.should('have.length', 1)
 			.and('have.attr', 'href', '#main');
