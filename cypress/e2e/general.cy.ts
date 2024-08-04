@@ -1,9 +1,10 @@
-describe('article page', () => {
-	const pages = [
+describe('general page', () => {
+	const articlePages = [
 		{ path: '/another-page', title: 'Another Page' },
 		{ path: '/markdown-page', title: 'Markdown Page' },
 	];
-	pages.forEach(({ path, title }) => {
+	const nonArticlePages = [{ path: '/custom-page', title: 'Custom Page' }];
+	[...articlePages, ...nonArticlePages].forEach(({ path, title }) => {
 		it(`${path} has contents`, () => {
 			cy.visit(path);
 
@@ -29,12 +30,15 @@ describe('article page', () => {
 				.contains('Grayspace Demo')
 				.should('be.unique');
 
-			cy.get('main')
-				.should('be.unique')
-				.and('have.attr', 'id', 'main')
-				.find('article')
-				.as('article')
-				.should('be.unique');
+			cy.get('main').should('be.unique').and('have.attr', 'id', 'main');
+		});
+	});
+
+	articlePages.forEach(({ path, title }) => {
+		it(`${path} has article`, () => {
+			cy.visit(path);
+
+			cy.get('main article').as('article').should('be.unique');
 			cy.get('@article').find('h1').contains(title).should('exist');
 			cy.get('@article').find('p').should('exist');
 		});
