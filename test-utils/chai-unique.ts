@@ -14,3 +14,13 @@ export default function unique(chai: Chai.ChaiStatic, utils: Chai.ChaiUtils) {
 		}
 	);
 }
+
+// Not "declare namespace Chai" because `astro check` seems to treat it as
+// overriding the existing type definition entirely
+declare global {
+	namespace Chai {
+		export interface Assertion {
+			get unique(): void;
+		}
+	}
+}
