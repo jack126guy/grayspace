@@ -30,6 +30,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.7.0",
+		"@types/chai": "^4.3.17",
 		"@types/node": "^20.14.2",
 		"astro": "^4.6.3",
 		"cypress": "^13.13.0",
