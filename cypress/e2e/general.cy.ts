@@ -10,6 +10,8 @@ describe('general page', () => {
 
 			cy.get('html').should('be.unique').and('have.attr', 'lang', 'en');
 
+			cy.get('title').should('be.unique').and('contain', title);
+
 			cy.get('header .skip-to-main')
 				.should('be.unique')
 				.and('have.attr', 'href', '#main');
