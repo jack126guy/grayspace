@@ -1,0 +1,10 @@
+---
+import BasePage from '@/components/BasePage.astro';
+---
+
+<BasePage title="Base Page with Slots" skipToMainText="Skip to main">
+	<meta slot="head" name="head-slot" content="" />
+	<div slot="header" class="header-slot"></div>
+	<div class="default-slot"></div>
+	<div slot="footer" class="footer-slot"></div>
+</BasePage>

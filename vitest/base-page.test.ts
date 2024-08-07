@@ -1,4 +1,5 @@
 import BasePage from '@/components/BasePage.astro';
+import BasePageWithSlots from './BasePageWithSlots.astro';
 import { renderToDocument } from './render';
 import { describe, it, expect } from 'vitest';
 
@@ -65,5 +66,16 @@ describe('BasePage', () => {
 		const skipToMainLink = document('header .skip-to-main');
 		expect(skipToMainLink).to.be.unique;
 		expect(skipToMainLink.attr('href')).to.equal('#main');
+	});
+
+	it('renders slots', async () => {
+		// Need to create a new component to test slots
+		// because slot content passed directly to container API is escaped
+		const document = await renderToDocument(BasePageWithSlots);
+
+		expect(document('head meta[name="head-slot"]')).to.be.unique;
+		expect(document('header .header-slot')).to.be.unique;
+		expect(document('main .default-slot')).to.be.unique;
+		expect(document('footer .footer-slot')).to.be.unique;
 	});
 });
