@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import grayspace from '.';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
 	i18n: {
@@ -12,4 +13,11 @@ export default defineConfig({
 			siteLogo: '/logo.png',
 		}),
 	],
+	vite: {
+		resolve: {
+			alias: {
+				'@': fileURLToPath(new URL('./src', import.meta.url)),
+			},
+		},
+	},
 });
