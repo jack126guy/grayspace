@@ -4,6 +4,7 @@ describe('general page', () => {
 		{ path: '/markdown-page', title: 'Markdown Page' },
 	];
 	const nonArticlePages = [{ path: '/custom-page', title: 'Custom Page' }];
+
 	[...articlePages, ...nonArticlePages].forEach(({ path, title }) => {
 		it(`${path} has contents`, () => {
 			cy.visit(path);

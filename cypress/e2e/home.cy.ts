@@ -2,6 +2,7 @@ describe('home page', () => {
 	beforeEach(() => {
 		cy.visit('/');
 	});
+
 	it('has contents', () => {
 		cy.get('html').should('be.unique').and('have.attr', 'lang', 'en');
 
