@@ -30,7 +30,7 @@ describe('HomeSiteId', () => {
 	});
 
 	it('renders site name', async () => {
-		const name = 'Test Site'
+		const name = 'Test Site';
 
 		const fragment = await renderToFragment(HomeSiteId, { name });
 

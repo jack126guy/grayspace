@@ -36,7 +36,7 @@ describe('GeneralHeader', () => {
 	});
 
 	it('renders site name', async () => {
-		const siteName = 'Test Site'
+		const siteName = 'Test Site';
 
 		const fragment = await renderToFragment(GeneralHeader, { siteName });
 
