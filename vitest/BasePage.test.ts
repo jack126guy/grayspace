@@ -65,7 +65,7 @@ describe('BasePage', () => {
 
 		const skipToMainLink = document('header .skip-to-main');
 		expect(skipToMainLink).to.be.unique;
-		expect(skipToMainLink.attr('href')).to.equal('#main');
+		expect(skipToMainLink.text()).to.equal(skipToMainText);
 	});
 
 	it('renders slots', async () => {
