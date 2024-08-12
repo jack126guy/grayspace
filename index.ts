@@ -1,5 +1,5 @@
 import { integration, type GrayspaceOptions } from './src/integration';
-import { type TextDirection } from './src/i18n';
+import { getI18n, type TextDirection, type I18n } from './src/i18n';
 
 export default integration;
-export { type GrayspaceOptions, type TextDirection };
+export { getI18n, type GrayspaceOptions, type TextDirection, type I18n };

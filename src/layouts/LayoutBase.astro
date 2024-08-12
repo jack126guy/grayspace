@@ -1,7 +1,7 @@
 ---
 import BasePage from '../components/BasePage.astro';
 import siteInfo from 'virtual:grayspace/site-info';
-import { translate, type TextDirection } from '../i18n';
+import { getI18n, type TextDirection } from '../i18n';
 import 'virtual:grayspace/site-styles';
 
 interface Props {
@@ -9,11 +9,11 @@ interface Props {
 }
 
 const currentLocale = Astro.currentLocale;
-const translations = translate(currentLocale);
+const i18n = getI18n(currentLocale);
 const { title } = Astro.props;
 const { favicon } = siteInfo;
-const dir = translations.__('ltr') as TextDirection;
-const skipToMainText = translations.__('Skip to main content');
+const dir = i18n.t('ltr') as TextDirection;
+const skipToMainText = i18n.t('Skip to main content');
 ---
 
 <BasePage
