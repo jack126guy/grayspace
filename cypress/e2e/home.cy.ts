@@ -4,7 +4,10 @@ describe('home page', () => {
 	});
 
 	it('has contents', () => {
-		cy.get('html').should('be.unique').and('have.attr', 'lang', 'en');
+		cy.get('html')
+			.should('be.unique')
+			.and('have.attr', 'lang', 'en')
+			.and('have.attr', 'dir', 'ltr');
 
 		cy.get('header .skip-to-main')
 			.should('be.unique')

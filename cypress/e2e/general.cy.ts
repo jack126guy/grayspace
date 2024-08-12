@@ -9,7 +9,10 @@ describe('general page', () => {
 		it(`${path} has contents`, () => {
 			cy.visit(path);
 
-			cy.get('html').should('be.unique').and('have.attr', 'lang', 'en');
+			cy.get('html')
+				.should('be.unique')
+				.and('have.attr', 'lang', 'en')
+				.and('have.attr', 'dir', 'ltr');
 
 			cy.get('title').should('be.unique').and('contain', title);
 
