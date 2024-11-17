@@ -3,4 +3,5 @@ export interface SiteInfo {
 	siteLogo?: string;
 	favicon?: string;
 	homeLink: string;
+	titleSeparator?: string;
 }

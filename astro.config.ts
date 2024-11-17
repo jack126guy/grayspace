@@ -11,6 +11,7 @@ export default defineConfig({
 		grayspace({
 			siteName: 'Grayspace Demo',
 			siteLogo: '/logo.png',
+			titleSeparator: ' - ',
 		}),
 	],
 	vite: {

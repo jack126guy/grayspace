@@ -10,8 +10,8 @@ import siteInfo from 'virtual:grayspace/site-info';
 interface Props extends GeneralLayoutProps {}
 
 const { title } = resolveGeneralLayoutOptions(Astro.props);
-const { siteName, siteLogo, homeLink } = siteInfo;
-const pageTitle = title ? `${title} | ${siteName}` : siteName;
+const { titleSeparator, siteName, siteLogo, homeLink } = siteInfo;
+const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 ---
 
 <LayoutBase title={pageTitle}>

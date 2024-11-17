@@ -9,6 +9,7 @@ export interface GrayspaceOptions {
 	favicon?: string;
 	siteStyles?: string[];
 	homeLink?: string;
+	titleSeparator?: string;
 }
 
 export function integration(options: GrayspaceOptions): AstroIntegration {
@@ -41,6 +42,7 @@ function buildSiteInfo(options: GrayspaceOptions): SiteInfo {
 		siteLogo: options.siteLogo,
 		favicon: options.favicon || options.siteLogo,
 		homeLink: options.homeLink || import.meta.env.BASE_URL,
+		titleSeparator: options.titleSeparator || ' | ',
 	};
 }
 
