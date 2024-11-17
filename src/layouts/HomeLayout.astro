@@ -1,6 +1,7 @@
 ---
 import LayoutBase from './LayoutBase.astro';
 import HomeSiteId from '../components/HomeSiteId.astro';
+import HomeFooter from 'virtual:grayspace/components/HomeFooter';
 import siteInfo from 'virtual:grayspace/site-info';
 
 const { siteName, siteLogo } = siteInfo;
@@ -13,5 +14,7 @@ const { siteName, siteLogo } = siteInfo;
 		<slot name="header" />
 	</Fragment>
 	<slot />
-	<slot slot="footer" name="footer" />
+	<slot slot="footer" name="footer">
+		<HomeFooter />
+	</slot>
 </LayoutBase>

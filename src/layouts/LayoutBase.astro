@@ -1,5 +1,6 @@
 ---
 import BasePage from '../components/BasePage.astro';
+import HeadExtra from 'virtual:grayspace/components/HeadExtra';
 import siteInfo from 'virtual:grayspace/site-info';
 import { getI18n, type TextDirection } from '../i18n';
 import 'virtual:grayspace/site-styles';
@@ -23,7 +24,9 @@ const skipToMainText = i18n.t('Skip to main content');
 	title={title}
 	skipToMainText={skipToMainText}
 >
-	<slot slot="head" name="head" />
+	<slot slot="head" name="head">
+		<HeadExtra />
+	</slot>
 	<slot slot="header" name="header" />
 	<slot />
 	<slot slot="footer" name="footer" />

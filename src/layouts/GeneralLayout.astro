@@ -1,6 +1,7 @@
 ---
 import LayoutBase from './LayoutBase.astro';
 import GeneralHeader from '../components/GeneralHeader.astro';
+import GeneralFooter from 'virtual:grayspace/components/GeneralFooter';
 import {
 	type GeneralLayoutProps,
 	resolveGeneralLayoutOptions,
@@ -25,5 +26,7 @@ const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 		<slot name="header" />
 	</GeneralHeader>
 	<slot />
-	<slot slot="footer" name="footer" />
+	<slot slot="footer" name="footer">
+		<GeneralFooter />
+	</slot>
 </LayoutBase>
