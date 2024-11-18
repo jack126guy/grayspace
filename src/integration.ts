@@ -30,8 +30,9 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 		hooks: {
 			'astro:config:setup': ({ config, updateConfig }) => {
 				const siteInfo = buildSiteInfo(options);
-				const siteStyleImports = (options.siteStyles || []).map((s) =>
-					convertImport(s, config.root)
+				const siteStyleImports = buildSiteStyleImports(
+					options.siteStyles,
+					config.root
 				);
 				const componentImports: Record<string, string | null> = {};
 				overrideableComponents.forEach((c) => {
@@ -63,6 +64,13 @@ function buildSiteInfo(options: GrayspaceOptions): SiteInfo {
 		homeLink: options.homeLink || import.meta.env.BASE_URL,
 		titleSeparator: options.titleSeparator || ' | ',
 	};
+}
+
+function buildSiteStyleImports(
+	siteStyles: string[] | undefined,
+	projectRoot: URL
+): string[] {
+	return (siteStyles || []).map((s) => convertImport(s, projectRoot));
 }
 
 function convertImport(id: string, projectRoot: URL): string {
