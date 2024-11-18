@@ -12,11 +12,14 @@ export interface GrayspaceOptions {
 	homeLink?: string;
 	titleSeparator?: string;
 	components?: {
-		HeadExtra?: string;
-		HomeFooter?: string;
-		GeneralFooter?: string;
+		HeadExtra?: ComponentOverride;
+		HomeFooter?: ComponentOverride;
+		GeneralFooter?: ComponentOverride;
 	};
 }
+
+type ComponentOverride = string | [string, string];
+type ComponentImport = [string, string];
 
 const overrideableComponents = getObjectKeys<GrayspaceOptions['components']>({
 	HeadExtra: true,
@@ -34,12 +37,8 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 					options.siteStyles,
 					config.root
 				);
-				const componentImports: Record<string, string | null> = {};
-				overrideableComponents.forEach((c) => {
-					componentImports[c] = options.components?.[c]
-						? convertImport(options.components[c], config.root)
-						: null;
-				});
+				const componentImports: Record<string, ComponentImport> =
+					buildComponentImports(options.components, config.root);
 				updateConfig({
 					vite: {
 						plugins: [
@@ -73,6 +72,27 @@ function buildSiteStyleImports(
 	return (siteStyles || []).map((s) => convertImport(s, projectRoot));
 }
 
+function buildComponentImports(
+	overrides: Record<string, ComponentOverride> | undefined,
+	projectRoot: URL
+): Record<string, ComponentImport> {
+	overrides = overrides || {};
+	const imports: Record<string, ComponentImport> = {};
+	overrideableComponents.forEach((c) => {
+		if (typeof overrides[c] === 'string') {
+			imports[c] = [convertImport(overrides[c], projectRoot), 'default'];
+		} else if (overrides[c]) {
+			imports[c] = [
+				convertImport(overrides[c][0], projectRoot),
+				overrides[c][1],
+			];
+		} else {
+			imports[c] = ['@halfgray/grayspace/components', c];
+		}
+	});
+	return imports;
+}
+
 function convertImport(id: string, projectRoot: URL): string {
 	return id.startsWith('.') ? resolveRelativePath(id, projectRoot) : id;
 }
@@ -80,7 +100,7 @@ function convertImport(id: string, projectRoot: URL): string {
 function siteConfigVirtualModulePlugin(
 	siteInfo: SiteInfo,
 	siteStyleImports: string[],
-	componentImports: Record<string, string | null>
+	componentImports: Record<string, ComponentImport>
 ): Plugin {
 	const virtualModules: Record<string, string> = {
 		'virtual:grayspace/site-info': `export default ${JSON.stringify(siteInfo)}`,
@@ -88,10 +108,11 @@ function siteConfigVirtualModulePlugin(
 			.map((c) => `import ${JSON.stringify(c)};`)
 			.join(''),
 	};
-	Object.entries(componentImports).forEach(([name, importSpec]) => {
-		virtualModules[`virtual:grayspace/components/${name}`] = importSpec
-			? `export { default } from ${JSON.stringify(importSpec)}`
-			: `export { ${name} as default } from '@halfgray/grayspace/components'`;
+	Object.entries(componentImports).forEach(([c, i]) => {
+		const exportName =
+			i[1] === 'default' ? 'default' : `${i[1]} as default`;
+		virtualModules[`virtual:grayspace/components/${c}`] =
+			`export { ${exportName} } from ${JSON.stringify(i[0])}`;
 	});
 	return {
 		name: 'vite-plugin-grayspace-site-config',
