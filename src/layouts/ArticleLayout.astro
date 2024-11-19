@@ -1,6 +1,8 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
+import HeadExtra from 'virtual:grayspace/components/HeadExtra';
 import Article from '../components/Article.astro';
+import GeneralFooter from 'virtual:grayspace/components/GeneralFooter';
 import {
 	type GeneralLayoutProps,
 	resolveGeneralLayoutOptions,
@@ -12,10 +14,14 @@ const { title } = resolveGeneralLayoutOptions(Astro.props);
 ---
 
 <GeneralLayout {...Astro.props}>
-	<slot slot="head" name="head" />
+	<slot slot="head" name="head">
+		<HeadExtra />
+	</slot>
 	<slot slot="header" name="header" />
 	<Article title={title}>
 		<slot />
 	</Article>
-	<slot slot="footer" name="footer" />
+	<slot slot="footer" name="footer">
+		<GeneralFooter />
+	</slot>
 </GeneralLayout>

@@ -1,5 +1,6 @@
 ---
 import LayoutBase from './LayoutBase.astro';
+import HeadExtra from 'virtual:grayspace/components/HeadExtra';
 import GeneralHeader from '../components/GeneralHeader.astro';
 import GeneralFooter from 'virtual:grayspace/components/GeneralFooter';
 import {
@@ -16,7 +17,9 @@ const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 ---
 
 <LayoutBase title={pageTitle}>
-	<slot slot="head" name="head" />
+	<slot slot="head" name="head">
+		<HeadExtra />
+	</slot>
 	<GeneralHeader
 		slot="header"
 		siteName={siteName}
