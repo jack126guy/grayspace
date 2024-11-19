@@ -14,6 +14,11 @@ describe('general page', () => {
 				.and('have.attr', 'lang', 'en')
 				.and('have.attr', 'dir', 'ltr');
 
+			cy.get('head')
+				.should('be.unique')
+				.find('meta[name="demo"]')
+				.should('be.unique');
+
 			cy.get('title').should('be.unique').and('contain', title);
 
 			cy.get('header .skip-to-main')

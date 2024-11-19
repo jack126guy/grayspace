@@ -9,6 +9,11 @@ describe('home page', () => {
 			.and('have.attr', 'lang', 'en')
 			.and('have.attr', 'dir', 'ltr');
 
+		cy.get('head')
+			.should('be.unique')
+			.find('meta[name="demo"]')
+			.should('be.unique');
+
 		cy.get('header .skip-to-main')
 			.should('be.unique')
 			.and('have.attr', 'href', '#main');

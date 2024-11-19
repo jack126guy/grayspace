@@ -12,6 +12,9 @@ export default defineConfig({
 			siteName: 'Grayspace Demo',
 			siteLogo: '/logo.png',
 			titleSeparator: ' - ',
+			components: {
+				HeadExtra: './src/demo-overrides/HeadExtra.astro',
+			},
 		}),
 	],
 	vite: {
