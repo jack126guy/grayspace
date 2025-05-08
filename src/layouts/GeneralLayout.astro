@@ -1,7 +1,7 @@
 ---
 import LayoutBase from './LayoutBase.astro';
 import HeadExtra from 'virtual:grayspace/components/HeadExtra';
-import GeneralHeader from '../components/GeneralHeader.astro';
+import GeneralHeader from 'virtual:grayspace/components/GeneralHeader';
 import GeneralFooter from 'virtual:grayspace/components/GeneralFooter';
 import siteInfo from 'virtual:grayspace/site-info';
 import { type PageInfoProps, resolvePageInfoProps } from '../page-info';
@@ -12,7 +12,7 @@ const pageInfo = resolvePageInfoProps(Astro.props);
 Astro.locals.grayspace = { site: siteInfo, page: pageInfo };
 
 const { title } = pageInfo;
-const { titleSeparator, siteName, siteLogo, homeLink } = siteInfo;
+const { titleSeparator, siteName } = siteInfo;
 const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 ---
 
@@ -20,14 +20,9 @@ const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 	<slot slot="head" name="head">
 		<HeadExtra />
 	</slot>
-	<GeneralHeader
-		slot="header"
-		siteName={siteName}
-		siteLogo={siteLogo}
-		homeLink={homeLink}
-	>
-		<slot name="header" />
-	</GeneralHeader>
+	<slot slot="header" name="header">
+		<GeneralHeader />
+	</slot>
 	<slot />
 	<slot slot="footer" name="footer">
 		<GeneralFooter />

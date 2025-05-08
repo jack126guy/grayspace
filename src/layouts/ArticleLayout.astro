@@ -1,23 +1,22 @@
 ---
 import GeneralLayout from './GeneralLayout.astro';
 import HeadExtra from 'virtual:grayspace/components/HeadExtra';
-import Article from '../components/Article.astro';
+import Article from 'virtual:grayspace/components/Article';
+import GeneralHeader from 'virtual:grayspace/components/GeneralHeader';
 import GeneralFooter from 'virtual:grayspace/components/GeneralFooter';
-import { type PageInfoProps, resolvePageInfoProps } from '../page-info';
+import { type PageInfoProps } from '../page-info';
 
 interface Props extends PageInfoProps {}
-
-const pageInfo = resolvePageInfoProps(Astro.props);
-
-const { title } = pageInfo;
 ---
 
 <GeneralLayout {...Astro.props}>
 	<slot slot="head" name="head">
 		<HeadExtra />
 	</slot>
-	<slot slot="header" name="header" />
-	<Article title={title}>
+	<slot slot="header" name="header">
+		<GeneralHeader />
+	</slot>
+	<Article>
 		<slot />
 	</Article>
 	<slot slot="footer" name="footer">

@@ -13,8 +13,11 @@ export interface GrayspaceOptions {
 	titleSeparator?: string;
 	components?: {
 		HeadExtra?: ComponentOverride;
-		HomeFooter?: ComponentOverride;
+		GeneralHeader?: ComponentOverride;
 		GeneralFooter?: ComponentOverride;
+		HomeHeader?: ComponentOverride;
+		HomeFooter?: ComponentOverride;
+		Article?: ComponentOverride;
 	};
 }
 
@@ -23,8 +26,11 @@ type ComponentImport = [string, string];
 
 const overrideableComponents = getObjectKeys<GrayspaceOptions['components']>({
 	HeadExtra: true,
-	HomeFooter: true,
+	GeneralHeader: true,
 	GeneralFooter: true,
+	HomeHeader: true,
+	HomeFooter: true,
+	Article: true,
 });
 
 export function integration(options: GrayspaceOptions): AstroIntegration {

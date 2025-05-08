@@ -1,18 +1,11 @@
 ---
 import SiteId from './SiteId.astro';
 
-interface Props {
-	siteName: string;
-	siteLogo?: string;
-	homeLink: string;
-}
-
-const { siteName, siteLogo, homeLink } = Astro.props;
+const { siteName, siteLogo, homeLink } = Astro.locals.grayspace.site;
 ---
 
 <div class="general-header">
 	<SiteId name={siteName} logo={siteLogo} link={homeLink} />
-	<slot />
 </div>
 
 <style>

@@ -1,0 +1,7 @@
+---
+import HomeSiteId from './HomeSiteId.astro';
+
+const { siteName, siteLogo } = Astro.locals.grayspace.site;
+---
+
+<HomeSiteId name={siteName} logo={siteLogo} />
