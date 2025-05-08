@@ -2,12 +2,17 @@
 import BasePage from '../components/BasePage.astro';
 import HeadExtra from 'virtual:grayspace/components/HeadExtra';
 import siteInfo from 'virtual:grayspace/site-info';
+import { type PageInfoProps, resolvePageInfoProps } from '../page-info';
 import { getI18n, type TextDirection } from '../i18n';
 import 'virtual:grayspace/site-styles';
 
 interface Props {
 	title: string;
+	pageInfo: PageInfoProps;
 }
+
+const pageInfo = resolvePageInfoProps(Astro.props.pageInfo);
+Astro.locals.grayspace = { site: siteInfo, page: pageInfo };
 
 const currentLocale = Astro.currentLocale;
 const i18n = getI18n(currentLocale);

@@ -4,17 +4,14 @@ import HeadExtra from 'virtual:grayspace/components/HeadExtra';
 import HomeHeader from 'virtual:grayspace/components/HomeHeader';
 import HomeFooter from 'virtual:grayspace/components/HomeFooter';
 import siteInfo from 'virtual:grayspace/site-info';
-import { type PageInfoProps, resolvePageInfoProps } from '../page-info';
+import { type PageInfoProps } from '../page-info';
 
 interface Props extends PageInfoProps {}
-
-const pageInfo = resolvePageInfoProps(Astro.props);
-Astro.locals.grayspace = { site: siteInfo, page: pageInfo };
 
 const { siteName } = siteInfo;
 ---
 
-<LayoutBase title={siteName}>
+<LayoutBase title={siteName} pageInfo={Astro.props}>
 	<slot slot="head" name="head">
 		<HeadExtra />
 	</slot>

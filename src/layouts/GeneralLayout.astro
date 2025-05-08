@@ -9,14 +9,12 @@ import { type PageInfoProps, resolvePageInfoProps } from '../page-info';
 interface Props extends PageInfoProps {}
 
 const pageInfo = resolvePageInfoProps(Astro.props);
-Astro.locals.grayspace = { site: siteInfo, page: pageInfo };
-
 const { title } = pageInfo;
 const { titleSeparator, siteName } = siteInfo;
 const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 ---
 
-<LayoutBase title={pageTitle}>
+<LayoutBase title={pageTitle} pageInfo={Astro.props}>
 	<slot slot="head" name="head">
 		<HeadExtra />
 	</slot>
