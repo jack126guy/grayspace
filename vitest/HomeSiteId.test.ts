@@ -11,15 +11,17 @@ describe('HomeSiteId', () => {
 	});
 
 	it('renders logo', async () => {
-		const logo = '/logo.png';
+		const props = {
+			logo: '/logo.png',
+		};
 
-		const fragment = await renderToFragment(HomeSiteId, { logo });
+		const fragment = await renderToFragment(HomeSiteId, { props });
 
 		const logoContainer = fragment('.home-site-logo');
 		expect(logoContainer).to.be.unique;
 		const logoImage = fragment('.home-site-logo img');
 		expect(logoImage).to.be.unique;
-		expect(logoImage.attr('src')).to.equal(logo);
+		expect(logoImage.attr('src')).to.equal(props.logo);
 	});
 
 	it('does not render logo without prop', async () => {
@@ -30,10 +32,12 @@ describe('HomeSiteId', () => {
 	});
 
 	it('renders site name', async () => {
-		const name = 'Test Site';
+		const props = {
+			name: 'Test Site',
+		};
 
-		const fragment = await renderToFragment(HomeSiteId, { name });
+		const fragment = await renderToFragment(HomeSiteId, { props });
 
-		expect(fragment('.home-site-id').text()).to.contain(name);
+		expect(fragment('.home-site-id').text()).to.contain(props.name);
 	});
 });

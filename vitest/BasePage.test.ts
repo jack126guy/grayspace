@@ -16,7 +16,7 @@ describe('BasePage', () => {
 			dir: 'ltr',
 		};
 
-		const document = await renderToDocument(BasePage, props);
+		const document = await renderToDocument(BasePage, { props });
 
 		const htmlElement = document('html');
 		expect(htmlElement.attr('lang')).to.equal(props.lang);
@@ -32,23 +32,27 @@ describe('BasePage', () => {
 	});
 
 	it('renders title', async () => {
-		const title = 'Test Page';
+		const props = {
+			title: 'Test Page',
+		};
 
-		const document = await renderToDocument(BasePage, { title });
+		const document = await renderToDocument(BasePage, { props });
 
 		const titleElement = document('title');
 		expect(titleElement).to.be.unique;
-		expect(titleElement.text()).to.equal(title);
+		expect(titleElement.text()).to.equal(props.title);
 	});
 
 	it('renders favicon', async () => {
-		const favicon = '/favicon.ico';
+		const props = {
+			favicon: '/favicon.ico',
+		};
 
-		const document = await renderToDocument(BasePage, { favicon });
+		const document = await renderToDocument(BasePage, { props });
 
 		const linkElement = document('link[rel="icon"]');
 		expect(linkElement).to.be.unique;
-		expect(linkElement.attr('href')).to.equal(favicon);
+		expect(linkElement.attr('href')).to.equal(props.favicon);
 	});
 
 	it('does not render favicon without prop', async () => {
@@ -59,13 +63,15 @@ describe('BasePage', () => {
 	});
 
 	it('renders skip to main link', async () => {
-		const skipToMainText = 'Skip to main';
+		const props = {
+			skipToMainText: 'Skip to main',
+		};
 
-		const document = await renderToDocument(BasePage, { skipToMainText });
+		const document = await renderToDocument(BasePage, { props });
 
 		const skipToMainLink = document('header .skip-to-main');
 		expect(skipToMainLink).to.be.unique;
-		expect(skipToMainLink.text()).to.equal(skipToMainText);
+		expect(skipToMainLink.text()).to.equal(props.skipToMainText);
 	});
 
 	it('renders slots', async () => {

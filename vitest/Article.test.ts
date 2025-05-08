@@ -11,13 +11,15 @@ describe('Article', () => {
 	});
 
 	it('renders title', async () => {
-		const title = 'Test Article';
+		const props = {
+			title: 'Test Article',
+		};
 
-		const fragment = await renderToFragment(Article, { title });
+		const fragment = await renderToFragment(Article, { props });
 
 		const titleHeading = fragment('article h1');
 		expect(titleHeading).to.be.unique;
-		expect(titleHeading.text()).to.equal(title);
+		expect(titleHeading.text()).to.equal(props.title);
 	});
 
 	it('does not render title without prop', async () => {
@@ -32,7 +34,7 @@ describe('Article', () => {
 			default: 'Test content',
 		};
 
-		const fragment = await renderToFragment(Article, undefined, slots);
+		const fragment = await renderToFragment(Article, { slots });
 
 		expect(fragment('article').text()).to.contain(slots.default);
 	});

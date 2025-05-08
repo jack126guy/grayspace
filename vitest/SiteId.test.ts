@@ -11,24 +11,28 @@ describe('SiteId', () => {
 	});
 
 	it('renders link', async () => {
-		const link = '/';
+		const props = {
+			link: '/',
+		};
 
-		const fragment = await renderToFragment(SiteId, { link });
+		const fragment = await renderToFragment(SiteId, { props });
 
 		const linkElement = fragment('a');
-		expect(linkElement.attr('href')).to.equal(link);
+		expect(linkElement.attr('href')).to.equal(props.link);
 	});
 
 	it('renders logo', async () => {
-		const logo = '/logo.png';
+		const props = {
+			logo: '/logo.png',
+		};
 
-		const fragment = await renderToFragment(SiteId, { logo });
+		const fragment = await renderToFragment(SiteId, { props });
 
 		const logoContainer = fragment('.site-logo');
 		expect(logoContainer).to.be.unique;
 		const logoImage = fragment('.site-logo img');
 		expect(logoImage).to.be.unique;
-		expect(logoImage.attr('src')).to.equal(logo);
+		expect(logoImage.attr('src')).to.equal(props.logo);
 	});
 
 	it('does not render logo without prop', async () => {
@@ -39,10 +43,12 @@ describe('SiteId', () => {
 	});
 
 	it('renders site name', async () => {
-		const name = 'Test Site';
+		const props = {
+			name: 'Test Site',
+		};
 
-		const fragment = await renderToFragment(SiteId, { name });
+		const fragment = await renderToFragment(SiteId, { props });
 
-		expect(fragment('a').text()).to.contain(name);
+		expect(fragment('a').text()).to.contain(props.name);
 	});
 });

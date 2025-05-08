@@ -11,21 +11,25 @@ describe('GeneralHeader', () => {
 	});
 
 	it('renders home link', async () => {
-		const homeLink = '/';
+		const props = {
+			homeLink: '/',
+		}
 
-		const fragment = await renderToFragment(GeneralHeader, { homeLink });
+		const fragment = await renderToFragment(GeneralHeader, { props });
 
 		const homeLinkElement = fragment('.site-id a');
-		expect(homeLinkElement.attr('href')).to.equal(homeLink);
+		expect(homeLinkElement.attr('href')).to.equal(props.homeLink);
 	});
 
 	it('renders site logo', async () => {
-		const siteLogo = '/logo.png';
+		const props = {
+			siteLogo: '/logo.png',
+		};
 
-		const fragment = await renderToFragment(GeneralHeader, { siteLogo });
+		const fragment = await renderToFragment(GeneralHeader, { props });
 
 		const siteLogoImage = fragment('.site-logo img');
-		expect(siteLogoImage.attr('src')).to.equal(siteLogo);
+		expect(siteLogoImage.attr('src')).to.equal(props.siteLogo);
 	});
 
 	it('does not render site logo without prop', async () => {
@@ -36,10 +40,12 @@ describe('GeneralHeader', () => {
 	});
 
 	it('renders site name', async () => {
-		const siteName = 'Test Site';
+		const props = {
+			siteName: 'Test Site',
+		}
 
-		const fragment = await renderToFragment(GeneralHeader, { siteName });
+		const fragment = await renderToFragment(GeneralHeader, { props });
 
-		expect(fragment('.site-id').text()).to.contain(siteName);
+		expect(fragment('.site-id').text()).to.contain(props.siteName);
 	});
 });

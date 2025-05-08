@@ -12,11 +12,13 @@ describe('SkipToMain', () => {
 	});
 
 	it('includes link text', async () => {
-		const text = 'Skip to main';
+		const props = {
+			text: 'Skip to main',
+		};
 
-		const fragment = await renderToFragment(SkipToMain, { text });
+		const fragment = await renderToFragment(SkipToMain, { props });
 
 		const rootElement = fragment(':root');
-		expect(rootElement.text()).to.equal(text);
+		expect(rootElement.text()).to.equal(props.text);
 	});
 });
