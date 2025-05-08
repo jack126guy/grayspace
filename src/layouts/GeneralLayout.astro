@@ -3,15 +3,15 @@ import LayoutBase from './LayoutBase.astro';
 import HeadExtra from 'virtual:grayspace/components/HeadExtra';
 import GeneralHeader from '../components/GeneralHeader.astro';
 import GeneralFooter from 'virtual:grayspace/components/GeneralFooter';
-import {
-	type GeneralLayoutProps,
-	resolveGeneralLayoutOptions,
-} from '../layout-props';
 import siteInfo from 'virtual:grayspace/site-info';
+import { type PageInfoProps, resolvePageInfoProps } from '../page-info';
 
-interface Props extends GeneralLayoutProps {}
+interface Props extends PageInfoProps {}
 
-const { title } = resolveGeneralLayoutOptions(Astro.props);
+const pageInfo = resolvePageInfoProps(Astro.props);
+Astro.locals.grayspace = { site: siteInfo, page: pageInfo };
+
+const { title } = pageInfo;
 const { titleSeparator, siteName, siteLogo, homeLink } = siteInfo;
 const pageTitle = title ? `${title}${titleSeparator}${siteName}` : siteName;
 ---

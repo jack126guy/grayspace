@@ -31,7 +31,7 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 	return {
 		name: '@halfgray/grayspace',
 		hooks: {
-			'astro:config:setup': ({ config, updateConfig }) => {
+			'astro:config:setup': ({ config, updateConfig, addMiddleware }) => {
 				const siteInfo = buildSiteInfo(options);
 				const siteStyleImports = buildSiteStyleImports(
 					options.siteStyles,
@@ -49,6 +49,10 @@ export function integration(options: GrayspaceOptions): AstroIntegration {
 							),
 						],
 					},
+				});
+				addMiddleware({
+					entrypoint: '@halfgray/grayspace/locals',
+					order: 'pre',
 				});
 			},
 		},
