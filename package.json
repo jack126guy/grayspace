@@ -17,6 +17,7 @@
 		"!src/pages",
 		"!src/*.d.ts",
 		"index.ts",
+		"components.ts",
 		"README.md",
 		"CHANGELOG.md",
 		"LICENSE.txt"
