@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.6.0 - 2026-06-04
+
+### Changed
+
+* **Breaking**: Add component override system and restructure layout and "page section" components (data now comes from Astro locals instead of props)
+* Improve handling of empty title in GeneralLayout and ArticleLayout
+* Use built-in locale files for text direction instead of Intl.Locale
+
+### Added
+
+* Add support for Astro 5
+* Allow for a custom separator between page title and site title
+* Export localization APIs to allow custom components to access translations
+
+### Fixed
+
+* Fix broken component library export
+* Move certain packages from dependencies to dev dependencies
+* Add tests
+
 ## 0.5.2 - 2024-06-17
 
 ### Added
