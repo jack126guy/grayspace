@@ -1,6 +1,6 @@
 # Grayspace
 
-Grayspace is a theme integration for the [Astro](https://astro.build/) website framework. It is a fairly minimal theme, originally designed for the website of the [Half-Gray Association](https://www.halfgray.xyz/).
+Grayspace is a theme integration for the [Astro](https://astro.build/) website framework. It is a fairly minimal theme, originally designed for the website of the [Half-Gray Project](https://www.halfgray.xyz/).
 
 ## Installation
 
