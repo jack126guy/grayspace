@@ -42,6 +42,11 @@ describe('general page', () => {
 				.should('be.unique');
 
 			cy.get('main').should('be.unique').and('have.attr', 'id', 'main');
+
+			cy.get('footer')
+				.should('be.unique')
+				.and('contain', title)
+				.and('contain', 'Grayspace Demo');
 		});
 	});
 

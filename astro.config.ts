@@ -14,6 +14,7 @@ export default defineConfig({
 			titleSeparator: ' - ',
 			components: {
 				HeadExtra: './src/demo-overrides/HeadExtra.astro',
+				GeneralFooter: './src/demo-overrides/GeneralFooter.astro',
 			},
 		}),
 	],
