@@ -82,6 +82,8 @@ The integration accepts the following options:
 * **favicon**: (`string`, optional) Path to favicon (defaults to using the site logo)
 * **siteStyles**: (`string[]`, optional) Custom CSS imports, either a path to a local file (starting with `.`) or a package name
 * **homeLink**: (`string`, optional) URL to homepage for the link in the header (defaults to the configured [base path](https://docs.astro.build/en/reference/configuration-reference/#base))
+* **titleSeparator**: (`string`, optional) Separator between page and site title in the browser (defaults to ` | `)
+* **components**: (`object`, optional) Components to override (refer to "Customization" section)
 
 In addition, it is highly recommended that you specify the locale in Astro's [i18n configuration](https://docs.astro.build/en/reference/configuration-reference/#i18n), even if your site is monolingual. This helps specify the language of the page for accessibility.
 
@@ -96,13 +98,25 @@ i18n: {
 
 ## Customization
 
-If you want to customize your pages, you can create your own layouts based on the ones provided. Each layout provides the following [named slots](https://docs.astro.build/en/basics/astro-components/#named-slots):
+There are a few different ways to customize your pages.
+
+### Component Overrides
+
+Component overrides allow you to customize certain aspects of the built-in layouts. This is most useful for sitewide customizations.
+
+### Layout Slots
+
+The built-in layouts have a few [named slots](https://docs.astro.build/en/basics/astro-components/#named-slots) you can use for a single page or a custom layout. This is most useful for customizations on specific pages.
+
+Each layout provides the following named slots:
 
 * **head**: Additional metadata to add to the `<head>` element
-* **header**: Additional contents to add to the `<header>` after the homepage link
-* **footer**: Contents to add to the `<footer>`
+* **header**: Contents of the `<header>` element (note that you will need to include the `SiteId` or `HomeSiteId` component if you want the site name and logo to appear)
+* **footer**: Contents of the `<footer>` element
 
-For even more customization, Grayspace provides a component library to build your own pages. This library does not require installing the integration on your site.
+### Component Library
+
+The component library allows you to build an entirely custom page or layout using a combination of existing components and custom code. This is most useful if you want to significantly alter the presentation of a page.
 
 The component library is exported under `@halfgray/grayspace/components`.
 
