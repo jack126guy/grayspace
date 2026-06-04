@@ -104,6 +104,27 @@ There are a few different ways to customize your pages.
 
 Component overrides allow you to customize certain aspects of the built-in layouts. This is most useful for sitewide customizations.
 
+This can be done by setting the `components` configuration option. This is a map of component names to overrides. The override is either a path to a local file (starting with `.`) or a package name. Alternatively, for non-default exports, the override can be a two-element array with a path/package name as the first element and an export name as the second element.
+
+Example:
+
+```
+components: {
+	Article: './components/CustomArticle.astro',
+	HeadExtra: '@example/my-head-extra',
+	GeneralFooter: ['@example/my-components', 'GeneralFooter'],
+}
+```
+
+The following components can be overriden:
+
+* Article
+* GeneralFooter
+* GeneralHeader
+* HeadExtra
+* HomeFooter
+* HomeHeader
+
 ### Layout Slots
 
 The built-in layouts have a few [named slots](https://docs.astro.build/en/basics/astro-components/#named-slots) you can use for a single page or a custom layout. This is most useful for customizations on specific pages.
