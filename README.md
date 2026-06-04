@@ -40,7 +40,7 @@ Grayspace is a theme integration for the [Astro](https://astro.build/) website f
 
 ## Usage
 
-Grayspace comes with a few common layouts for pages. You can use them directly in `.astro` pages or in [Markdown](https://docs.astro.build/en/basics/layouts/#markdownmdx-layouts).
+Grayspace comes with a few common layouts for pages. You can use them directly in `.astro` pages or in [Markdown](https://docs.astro.build/en/basics/layouts/#markdown-layouts).
 
 These layouts are exported as `@halfgray/grayspace/layouts/[layout]`:
 
