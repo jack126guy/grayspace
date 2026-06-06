@@ -1,16 +1,10 @@
 ---
+import HeaderContainer from './HeaderContainer.astro';
 import SiteId from './SiteId.astro';
 
 const { siteName, siteLogo, homeLink } = Astro.locals.grayspace.site;
 ---
 
-<div class="general-header">
+<HeaderContainer>
 	<SiteId name={siteName} logo={siteLogo} link={homeLink} />
-</div>
-
-<style>
-	.general-header {
-		border-bottom: thin solid;
-		padding-bottom: 0.75em;
-	}
-</style>
+</HeaderContainer>

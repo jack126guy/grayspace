@@ -1,16 +1,10 @@
 ---
+import FooterContainer from '@/components/FooterContainer.astro';
+
 const { siteName } = Astro.locals.grayspace.site;
 const { title } = Astro.locals.grayspace.page;
 ---
 
-<div class="general-footer">
+<FooterContainer>
 	<p>"{title}" is part of the {siteName} site.</p>
-</div>
-
-<style>
-	.general-footer {
-		font-size: 0.75em;
-		border-top: thin solid;
-		margin-top: 2em;
-	}
-</style>
+</FooterContainer>
