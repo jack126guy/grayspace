@@ -9,7 +9,10 @@
 		".": "./index.ts",
 		"./components": "./components.ts",
 		"./layouts/*": "./src/layouts/*.astro",
-		"./locals": "./src/locals.ts"
+		"./locals": "./src/locals.ts",
+		"./client": {
+			"types": "./client.d.ts"
+		}
 	},
 	"files": [
 		"src",
@@ -18,6 +21,7 @@
 		"!src/*.d.ts",
 		"index.ts",
 		"components.ts",
+		"client.d.ts",
 		"README.md",
 		"CHANGELOG.md",
 		"LICENSE.txt"
